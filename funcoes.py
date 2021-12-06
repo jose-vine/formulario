@@ -23,9 +23,9 @@ def leiaInt(txt):
 def leiaResposta(txt):
     while True:
         rsp = str(input(txt))
-        return rsp
         if rsp == '':
             print('\033[31mEspaço em branco! Tente novamente!\033[m')
         else:
+            return rsp
             break
         
