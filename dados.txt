@@ -1,0 +1,5 @@
+pergunta: Qual a capital do Brasil?
+a): Brasília
+b): São Paulo
+c): Goiás
+d): Paraná

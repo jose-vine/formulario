@@ -1,15 +1,19 @@
 from funcoes import *
 from os import system
 
+arq = 'dados.txt'
+if not arquivoExiste(arq):
+    criarArquivo(arq)    
+
 system('cls')
 cabecalho('FORMS')
 menu('Criar menu', 'Sair do sistema')
 linha()
 while True:
     opcao = leiaInt('Escolha uma das opções acima: ')
-    system('cls')
-    cabecalho('FORMS')
     if opcao == 1:
+        system('cls')
+        cabecalho('FORMS')
         formulario = dict()
         formulario['pergunta'] = leiaResposta('Informe a questão do seu formulário: ')
         system('cls')
@@ -49,12 +53,10 @@ while True:
                 break
             else:
                 print('\033[31mNúmero de alternativas inválido! Tente novamente!\033[m')
+        arquivo = open(arq, 'at+')
         for k, v in formulario.items():
-            if k == 'pergunta':
-                cabecalho(v)
-            else:
-                print(k, v)
-        linha()
+            arquivo.write(f'{k}: {v}\n')
+        arquivo.close()
         break
     elif opcao == 2:
         break

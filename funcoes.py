@@ -28,4 +28,30 @@ def leiaResposta(txt):
         else:
             return rsp
             break
+
+def arquivoExiste(arq):
+    try:
+        arquivo = open(arq, 'rt')
+        arquivo.close()
+    except:
+        return False
+    else:
+        return True
+
+def criarArquivo(arq):
+    try:
+        arquivo = open(arq, 'wt+')
+        arquivo.close
+    except:
+        print('Erro ao criar o arquivo!')
+    else:
+        print('Arquivo dados.txt criado com sucesso!')
+
+def lerArquivo(arq):
+    try:
+        arquivo = open(arq, 'rt')
+        arquivo.read()
+        arquivo.close
+    except:
+        print('Erro ao ler o arquivo!')
         
