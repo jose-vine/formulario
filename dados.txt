@@ -1,5 +1,10 @@
-pergunta: Qual a capital do Brasil?
-a): Brasília
-b): São Paulo
-c): Goiás
-d): Paraná
+pergunta;Qual a capital do Brasil?
+a);Brasília
+b);Rio Grande do Norte
+c);Pernambuco
+d);Espírito Santo
+pergunta;Qual a camada de água da Terra?
+a);Biosfera
+b);Hidrosfera
+c);Litosfera
+d);Mesosfera

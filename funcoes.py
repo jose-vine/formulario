@@ -1,3 +1,5 @@
+from os import remove, system
+
 def linha():
     print('-' * 50)
 
@@ -41,17 +43,22 @@ def arquivoExiste(arq):
 def criarArquivo(arq):
     try:
         arquivo = open(arq, 'wt+')
-        arquivo.close
+        arquivo.close()
     except:
         print('Erro ao criar o arquivo!')
-    else:
-        print('Arquivo dados.txt criado com sucesso!')
 
 def lerArquivo(arq):
     try:
+        system('cls')
         arquivo = open(arq, 'rt')
-        arquivo.read()
-        arquivo.close
+        for linha in arquivo:
+            elem = linha.split(';')
+            if elem[0] == 'pergunta':
+                cabecalho(elem[1].replace('\n', ''))
+            else:
+                print(elem[0], elem[1].replace('\n', ''))
+        print('-' * 50)
+        arquivo.close()
     except:
         print('Erro ao ler o arquivo!')
         

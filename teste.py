@@ -7,7 +7,7 @@ if not arquivoExiste(arq):
 
 system('cls')
 cabecalho('FORMS')
-menu('Criar menu', 'Sair do sistema')
+menu('Criar menu', 'Executar formulário', 'Sair do sistema')
 linha()
 while True:
     opcao = leiaInt('Escolha uma das opções acima: ')
@@ -20,8 +20,9 @@ while True:
         cabecalho('FORMS')
         while True:
             alt=leiaInt('Informe o número de alternativas do seu formulário: ')
-            linha()
             if alt == 2:
+                system('cls')
+                cabecalho('FORMS')
                 formulario['a)'] = leiaResposta('Alternativa A: ')
                 formulario['b)'] = leiaResposta('Alternativa B: ')
                 system('cls')
@@ -36,6 +37,8 @@ while True:
                         print('\033[31mAlternativas inválidas! Por favor, informe corretamente!\033[m')
                 break
             elif alt == 4:
+                system('cls')
+                cabecalho('FORMS')
                 formulario['a)'] = leiaResposta('Alternativa A: ')
                 formulario['b)'] = leiaResposta('Alternativa B: ')
                 formulario['c)'] = leiaResposta('Alternativa C: ')
@@ -55,10 +58,13 @@ while True:
                 print('\033[31mNúmero de alternativas inválido! Tente novamente!\033[m')
         arquivo = open(arq, 'at+')
         for k, v in formulario.items():
-            arquivo.write(f'{k}: {v}\n')
+            arquivo.write(f'{k};{v}\n')
         arquivo.close()
         break
     elif opcao == 2:
+        lerArquivo(arq)
+        break
+    elif opcao == 3:
         break
     else:
         print('\033[31mOpção inválida! Tente novamente!\033[m')
