@@ -55,10 +55,16 @@ def lerArquivo(arq):
             elem = linha.split(';')
             if elem[0] == 'pergunta':
                 cabecalho(elem[1].replace('\n', ''))
+            elif elem[0] == 'resposta':
+                print('-' * 50)
+                correto = leiaResposta('Selecione a alternativa correta: ').lower().strip()
+                if correto == elem[1].replace('\n', ''):
+                    print('Resposta correta!')
+                else:
+                    print('Resposta incorreta!')
             else:
                 print(elem[0], elem[1].replace('\n', ''))
         print('-' * 50)
         arquivo.close()
     except:
         print('Erro ao ler o arquivo!')
-        

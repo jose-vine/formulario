@@ -3,7 +3,7 @@ from os import system
 
 arq = 'dados.txt'
 if not arquivoExiste(arq):
-    criarArquivo(arq)    
+    criarArquivo(arq)
 
 system('cls')
 cabecalho('FORMS')
@@ -15,39 +15,41 @@ while True:
         system('cls')
         cabecalho('FORMS')
         formulario = dict()
-        formulario['pergunta'] = leiaResposta('Informe a questão do seu formulário: ')
+        formulario['pergunta'] = leiaResposta('Informe a questão do seu formulário: ').strip()
         system('cls')
         cabecalho('FORMS')
         while True:
-            alt=leiaInt('Informe o número de alternativas do seu formulário: ')
+            alt = leiaInt(
+                'Informe o número de alternativas do seu formulário: ')
             if alt == 2:
                 system('cls')
                 cabecalho('FORMS')
-                formulario['a)'] = leiaResposta('Alternativa A: ')
-                formulario['b)'] = leiaResposta('Alternativa B: ')
+                formulario['a)'] = leiaResposta('Alternativa A: ').strip()
+                formulario['b)'] = leiaResposta('Alternativa B: ').strip()
                 system('cls')
                 cabecalho('FORMS')
                 while True:
-                    resposta = leiaResposta('Informe a resposta correta da questão anterior: ')
-                    if resposta.lower() in 'a' or resposta.lower() in 'b':
+                    formulario['resposta'] = leiaResposta('Informe a resposta correta da questão anterior: ').lower().strip()
+                    if formulario['resposta'] in 'a' or formulario['resposta'] in 'b':
                         system('cls')
                         cabecalho('FORMS')
                         break
                     else:
-                        print('\033[31mAlternativas inválidas! Por favor, informe corretamente!\033[m')
+                        print(
+                            '\033[31mAlternativas inválidas! Por favor, informe corretamente!\033[m')
                 break
             elif alt == 4:
                 system('cls')
                 cabecalho('FORMS')
-                formulario['a)'] = leiaResposta('Alternativa A: ')
-                formulario['b)'] = leiaResposta('Alternativa B: ')
-                formulario['c)'] = leiaResposta('Alternativa C: ')
-                formulario['d)'] = leiaResposta('Alternativa D: ')
+                formulario['a)'] = leiaResposta('Alternativa A: ').strip()
+                formulario['b)'] = leiaResposta('Alternativa B: ').strip()
+                formulario['c)'] = leiaResposta('Alternativa C: ').strip()
+                formulario['d)'] = leiaResposta('Alternativa D: ').strip()
                 system('cls')
                 cabecalho('FORMS')
                 while True:
-                    resposta = leiaResposta('Informe a resposta correta da questão anterior: ')
-                    if resposta.lower() in 'a' or resposta.lower() in 'b' or resposta.lower() in 'c' or resposta.lower() in 'd':
+                    formulario['resposta'] = leiaResposta('Informe a resposta correta da questão anterior: ').lower().strip()
+                    if formulario['resposta'] in 'a' or formulario['resposta'] in 'b' or formulario['resposta'] in 'c' or formulario['resposta'] in 'd':
                         system('cls')
                         cabecalho('FORMS')
                         break
@@ -55,7 +57,8 @@ while True:
                         print('\033[31mAlternativas inválidas! Por favor, informe corretamente!\033[m')
                 break
             else:
-                print('\033[31mNúmero de alternativas inválido! Tente novamente!\033[m')
+                print(
+                    '\033[31mNúmero de alternativas inválido! Tente novamente!\033[m')
         arquivo = open(arq, 'at+')
         for k, v in formulario.items():
             arquivo.write(f'{k};{v}\n')
